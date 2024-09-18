@@ -58,7 +58,7 @@ class AuthServices {
   
       if (!currentAccount) throw Error;
   
-      const currentUser = await databaseServices.getCurrentUser(currentAccount);
+      const currentUser = await databaseServices.getCurrentUser(account);
   
       if (!currentUser) throw Error;
       return currentUser.documents[0];

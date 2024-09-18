@@ -1,5 +1,5 @@
 import { ID, Query } from "appwrite";
-import { appwriteConfig, databases } from "./config";
+import { account, appwriteConfig, databases } from "./config";
 import { URL } from "url";
 import { INewPost, IUpdatePost, IUpdateUser } from "@/types";
 import storageServices from "./StorageServices";
@@ -17,7 +17,6 @@ class DatabaseServices {
   //     bucket = new Storage(client);
   //     console.log('Storage initialized:', bucket); // Debugging log
   // }
-
     async saveUserToDB(user: {
         accountID: string;
         username: string;
@@ -34,11 +33,11 @@ class DatabaseServices {
         }
     }
 
-    async getCurrentUser(currentAccount) {
-     return await databases.listDocuments(
+    async getCurrentUser(currentAccount: typeof account) {
+      return await databases.listDocuments(
         appwriteConfig.databaseID,
         appwriteConfig.usersCollectionID,
-        [Query.equal("accountID", currentAccount.$id)]
+        [Query.equal("accountID", (await currentAccount.get()).$id)]
       );
     }
 
