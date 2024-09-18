@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import sideImage from "/public/assets/images/side-img.svg";
+import sideImage from "../assets/images/side-image.jpg";
 
 const AuthLayout = () => {
   const [isAuth] = useState(false);

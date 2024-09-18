@@ -7,7 +7,10 @@ export default defineConfig({
   plugins: [react()],
   build: {
     sourcemap: true,
+    outDir: 'dist',
+    assetsDir: 'assets',
   },
+  publicDir: 'public',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
