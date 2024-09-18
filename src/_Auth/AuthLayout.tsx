@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
+import sideImage from "/public/assets/images/side-img.svg";
 
 const AuthLayout = () => {
   const [isAuth] = useState(false);
@@ -14,7 +15,7 @@ const AuthLayout = () => {
             <Outlet />
           </section>
           <img
-            src="/public/assets/images/side-img.svg"
+            src={sideImage}
             alt="side-img"
             className=" hidden xl:block w-1/2 h-screen bg-no-repeat object-cover"
           />
